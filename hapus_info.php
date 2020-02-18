@@ -11,7 +11,7 @@
 
     $koneksi->query("DELETE FROM `tb_info` WHERE info_id = $id");
     
-    header('location:data_info.php');
+    header('location:tabel.php');
     
 
 ?>

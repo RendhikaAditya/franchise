@@ -172,7 +172,7 @@
                                         $gambarniq = $pecahgambar[0]=uniqid().".".$pecahgambar[1];
                                         move_uploaded_file($lokasi, "admin/asset/gambar/$gambarniq");
 
-                                        $nama = $_POST['nama'];
+                                        $nama = $_SESSION['frn']->frn_id;
                                         $kategori = $_POST['kategori'];
                                         $keterangan = $_POST['keterangan'];
                                         $tahun = $_POST['tahun'];

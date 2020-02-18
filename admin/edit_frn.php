@@ -37,7 +37,7 @@
                             $ambil = $koneksi->query("SELECT * FROM tb_frn WHERE frn_id= $id");
                             $data = $ambil-> fetch_object();
                         ?>
-                                <form method="POST">
+                                <form method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <div class="form-label-group">
                                             <input type="hidden" value="<?php echo $data->frn_id;?>"  name="id">
@@ -75,10 +75,30 @@
                                             <label>Web</label>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="form-label-group">
+                                            <input name="gambar" value="<?php echo $data->frn_gambar ?>"  type="file" class="form-control">        
+                                            <img src="asset/gambar/<?php echo $data->frn_gambar ?>" height="80px" width="auto" alt="">
+                                            <label>Gambar</label>
+                                        </div>
+                                    </div>
                                     <button name="update" class="btn btn-primary btn-block"> + edit </button>
                                 </form>
                                 <?php
                                     if(isset($_POST['update'])){
+
+                                        $nama_gambar = $_FILES['gambar']['name'];
+                                        $lokasi = $_FILES['gambar']['tmp_name'];
+
+                                        
+                                        $pecahgambar = explode(".",$nama_gambar);
+                                        $gambarniq = $pecahgambar[0]=uniqid().".".$pecahgambar[1];
+                                        move_uploaded_file($lokasi, "asset/gambar/$gambarniq");
+
+                                        if(empty($nama_gambar)){
+                                            $gambarniq=$data->frn_gambar;
+                                        }
+
                                         $nama = $_POST['name'];
                                         $username = $_POST['username'];
                                         $pass = $_POST['password'];
@@ -89,7 +109,7 @@
 
 
                                         include 'components/koneksi.php';
-                                        $koneksi->query("UPDATE tb_frn SET frn_nama = '$nama', frn_username = '$username', frn_password='$pass', frn_telpon='$telpon', frn_email='$email', frn_web='$web' WHERE frn_id = '$id'");
+                                        $koneksi->query("UPDATE tb_frn SET frn_nama = '$nama', frn_username = '$username', frn_password='$pass', frn_telpon='$telpon', frn_email='$email', frn_web='$web', frn_gambar='$gambarniq' WHERE frn_id = '$id'");
 
                                         echo "<script>
                                         window.location='data_frn.php';
