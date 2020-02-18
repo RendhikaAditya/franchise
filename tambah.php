@@ -149,14 +149,7 @@
                             <div class="col-md-12 form-group p_star">
                                 <label>alamat</label>    
                                 <input name="alamat" type="text" class="form-control">                            
-                            </div>
-                            <label style="margin-left: 16px">Gambar</label>  
-                            <div class="col-md-12 form-group">                                  
-                                <label class="file" style="width: 85%">                                
-                                    <input type="file" name="gambar" aria-label="File browser example">
-                                    <span class="file-custom"></span>                                    
-                                </label>                       
-                            </div>                                                 
+                            </div>                                                
                             <div class="col-md-12 form-group">
                                 <button name="save" class="primary-btn rounded" style="width:100%">Save</button>
                             </div>
@@ -165,12 +158,12 @@
                                     if(isset($_POST['save'])){
                                         // var_dump ($_FILES['gambar']);
                                         // exit;
-                                        $nama_gambar = $_FILES['gambar']['name'];
-                                        $lokasi = $_FILES['gambar']['tmp_name'];
+                                        // $nama_gambar = $_FILES['gambar']['name'];
+                                        // $lokasi = $_FILES['gambar']['tmp_name'];
 
-                                        $pecahgambar = explode(".",$nama_gambar);
-                                        $gambarniq = $pecahgambar[0]=uniqid().".".$pecahgambar[1];
-                                        move_uploaded_file($lokasi, "admin/asset/gambar/$gambarniq");
+                                        // $pecahgambar = explode(".",$nama_gambar);
+                                        // $gambarniq = $pecahgambar[0]=uniqid().".".$pecahgambar[1];
+                                        // move_uploaded_file($lokasi, "admin/asset/gambar/$gambarniq");
 
                                         $nama = $_SESSION['frn']->frn_id;
                                         $kategori = $_POST['kategori'];
@@ -185,9 +178,10 @@
                                             // exit;
 
                                         include 'admin/components/koneksi.php';
-                                        $koneksi->query("INSERT INTO `tb_info`(`frn_id`,`kategori_id`,`info_keterangan`,`info_tahun`,`info_modal`,`info_merk`,`info_perusahaan`,`info_alamat`,`info_gambar`) VALUES ('$nama','$kategori','$keterangan','$tahun','$modal','$merk','$perusahaan','$alamat','$gambarniq')");
+                                        $koneksi->query("INSERT INTO `tb_info`(`frn_id`,`kategori_id`,`info_keterangan`,`info_tahun`,`info_modal`,`info_merk`,`info_perusahaan`,`info_alamat`) VALUES ('$nama','$kategori','$keterangan','$tahun','$modal','$merk','$perusahaan','$alamat')");
                                         echo"
-                                        <script>window.location='index.php'</script>";
+                                        <script>
+                                        window.location='tabel.php'</script>";
                                         
                                     }
                                     ?>
