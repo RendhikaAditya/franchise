@@ -10,7 +10,7 @@
     unlink('admin/asset/gambar/'.$gambar);
 
     $koneksi->query("DELETE FROM `tb_info` WHERE info_id = $id");
-    
+    // jjj
     header('location:tabel.php');
     
 
