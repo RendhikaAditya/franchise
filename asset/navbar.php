@@ -16,13 +16,19 @@
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="waralaba.php">Waralaba</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.php">Contact Us</a></li>
                         <?php
-                            session_start();
-                                if(isset($_SESSION['frn'])){?>
-                        <li class="nav-item"><a class="nav-link" href="tambah.php">Masukan Data </a></li>
-                        <li class="nav-item"><a class="nav-link" href="tabel.php">Edit Data </a></li>
+                            session_start();    
+                            if(isset($_SESSION['frn'])){
+                            $user = $_SESSION['frn']->frn_nama;
+                        ?>                            
+                            <li class="nav-item"><a class="nav-link" href="tambah.php">Masukan Data </a></li>
+                            <li class="nav-item"><a class="nav-link" href="tabel.php">Data <?php echo $user ?> </a></li>
                         <?php } ?>
-                        <!-- <li class="nav-item"><a class="nav-link" href="about.php">About</a></li> -->
+                        <!-- <li class="nav-item"><a class="nav-link" href="about.php">About</a></li> -->           
+                        <?php if(isset($_SESSION['frn']) || isset($_SESSION['inv']) ){?>
+                                <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+                        <?php }else{ ?>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">Daftar</a>
@@ -31,9 +37,6 @@
                                 <li class="nav-item"><a class="nav-link" href="daftar_inv.php">investor</a></li>
                             </ul>
                         </li>
-                        <?php if(isset($_SESSION['frn']) || isset($_SESSION['inv']) ){?>
-                                <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
-                        <?php }else{ ?>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">Login</a>
@@ -47,15 +50,14 @@
                         $isi = $koneksi->query("SELECT * FROM tb_frn");
                         $data = $isi->fetch_object();
                         ?>
-
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <!-- <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item">
                         <li class="nav-item"><a href="#" class="cart"><img src="admin/asset/gambar/user.png"
                                     style="width:40px; " class="border border-danger rounded-circle"></a></li>
 
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </nav>

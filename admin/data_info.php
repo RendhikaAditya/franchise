@@ -45,7 +45,6 @@
                     <th>Merk</th>
                     <th>Perusahaan</th>
                     <th>Alamat</th>
-                    <th>Gambar</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>              
@@ -66,7 +65,6 @@
                     <td><?php echo $data->info_merk?></td>
                     <td><?php echo $data->info_perusahaan?></td>
                     <td><?php echo $data->info_alamat?></td>
-                    <td><img src="asset/gambar/<?php echo $data->info_gambar?>" alt="" width="100px" hight="100px"></td>
                     <td width = "90px"><center><a href="edit_info.php?id=<?php echo $data->info_id; ?>" class="btn btn-success"><span class="fa fa-pen"></span></a>
                                                <a onclick = "return confirm('anda yakin hapus')" href="hapus_info.php?id=<?php echo $data->info_id; ?>" class="btn btn-danger"><span class="fa fa-trash-alt"></span></a>                                 </span></a>
                     </center></td>

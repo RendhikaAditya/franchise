@@ -76,7 +76,7 @@
 									</div>
 									<div class="container">
 										<div class="col-md-12">
-											<a href="detail.php?id=<?php echo $isi->info_id ?>" class="btn rounded primary-btn" style="width:100%">Masuk</a>
+											<a href="detail.php?id=<?php echo $isi->info_id ?>" class="btn rounded primary-btn" style="width:100%">detail</a>
 										</div>
 									</div>
 								</div>

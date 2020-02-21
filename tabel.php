@@ -66,7 +66,7 @@
 </head>
 
 <body id="category">
-    <?php
+        <?php
 		    include 'asset/navbar.php';
         ?>
     <?php 
@@ -77,13 +77,77 @@
 									alert('Anda Harus Login Untuk Menambah Data');
 									window.location='franchisor.php';
 									</script>";                   
-            }        
-            
-        ?>
-    <?php
-		    include 'asset/banner.php';
-        ?>
+            }
+    ?>
+        
+            <section class="banner-area organic-breadcrumb">
+                <div class="container">
+                    <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+                        <div class="col-first">
+                            <h1>Data Waralaba</h1>
+                            <nav class="d-flex align-items-center">
+                                <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+                                <a href="tabel.php">Tabel</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </section>
+ 
     <div class="container">
+        <div class="col-md-12">
+            <div class="table-responsive-sm">
+                <table class="table radius" style="margin-top: 70px; margin-bottom:70px">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama Franchisor</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Password</th>
+                            <th scope="col">Telpon</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Website</th>
+                            <th scope="col">Gambar</th>
+                            <th scope="col">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $id=$_SESSION['frn']->frn_id;
+                        include("admin/components/koneksi.php");                     
+                        $satu = $koneksi->query("SELECT * FROM tb_frn WHERE frn_id=$id");
+                        
+                        $no=1;
+                        
+                        while($data = $satu->fetch_object()){;
+                            $ambil = $koneksi->query("SELECT * FROM tb_info LEFT JOIN tb_kategori ON tb_info.kategori_id = tb_kategori.kategori_id LEFT JOIN tb_frn ON tb_info.frn_id = tb_frn.frn_id");
+                            $diti= $ambil->fetch_object();
+                        // var_dump($data);
+                    ?>
+                        <tr>
+                            <td><?php echo $no ?></td>
+                            <td><?php echo $data->frn_nama?></td>
+                            <td><?php echo $data->frn_username?></td>
+                            <td><?php echo $data->frn_password?></td>
+                            <td><?php echo $data->frn_telpon?></td>
+                            <td><?php echo $data->frn_email?></td>
+                            <td><?php echo $data->frn_web?></td>
+                            <td><img src="admin/asset/gambar/<?php echo $data->frn_gambar?>" alt="" width="100px"
+                                    hight="100px"></td>
+                            <td width="90px">
+                                <center>
+                                        <a href="edit_frn.php?id=<?php echo $data->frn_id; ?>" style="width: 100%" class="btn btn-success">Edit</a>    
+                                        <a onclick="return confirm('anda yakin hapus')"
+                                        href="hapus_info.php?id=<?php echo $data->info_id; ?>"
+                                        class="btn btn-danger">hapus</a>
+                                </center>
+                            </td>
+                        </tr>
+                        <?php $no++; }?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="table-responsive-sm">
                 <table class="table radius" style="margin-top: 70px; margin-bottom:70px">
@@ -98,12 +162,11 @@
                             <th scope="col">Merk</th>
                             <th scope="col">Perusahaan</th>
                             <th scope="col">Alamat</th>
-                            <th scope="col">Gambar</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                    <?php
                         $id=$_SESSION['frn']->frn_id;
                         include("admin/components/koneksi.php");                     
                         $satu = $koneksi->query("SELECT * FROM tb_info WHERE frn_id=$id");
@@ -111,25 +174,30 @@
                         $no=1;
                         
                         while($data = $satu->fetch_object()){;
-                            $ambil = $koneksi->query("SELECT * FROM tb_info LEFT JOIN tb_kategori ON tb_info.kategori_id = tb_kategori.kategori_id LEFT JOIN tb_frn ON tb_info.frn_id = tb_frn.frn_id");
+                            $iid=$data->frn_id;
+                            $iidd=$data->kategori_id;
+                            $ambil = $koneksi->query("SELECT * FROM tb_frn WHERE frn_id=$iid");
                             $diti= $ambil->fetch_object();
+                            
+                            $sql=$koneksi->query("SELECT * FROM `tb_info` LEFT JOIN tb_kategori ON tb_info.kategori_id=tb_kategori.kategori_id WHERE frn_id=$id");
+                            $ditu=$sql->fetch_object();
+                            
                         // var_dump($data);
                     ?>
                         <tr>
                             <td><?php echo $no ?></td>
                             <td><?php echo $diti->frn_nama?></td>
-                            <td><?php echo $diti->kategori_nama?></td>
+                            <td><?php echo $ditu->kategori_nama?></td>
                             <td><?php echo substr($data->info_keterangan,0,300); ?></td>
                             <td><?php echo $data->info_tahun?></td>
                             <td><?php echo $data->info_modal?></td>
                             <td><?php echo $data->info_merk?></td>
                             <td><?php echo $data->info_perusahaan?></td>
                             <td><?php echo $data->info_alamat?></td>
-                            <td><img src="admin/asset/gambar/<?php echo $data->info_gambar?>" alt="" width="100px"
-                                    hight="100px"></td>
                             <td width="90px">
                                 <center>
-                                    <a onclick="return confirm('anda yakin hapus')"
+                                        <a href="edit_info.php?id=<?php echo $data->frn_id; ?>" style="width: 100%" class="btn btn-success">Edit</a>    
+                                        <a onclick="return confirm('anda yakin hapus')"
                                         href="hapus_info.php?id=<?php echo $data->info_id; ?>"
                                         class="btn btn-danger">hapus</a>
                                 </center>

@@ -55,7 +55,9 @@
 
 
 	<!-- Start related-product Area -->
+	<?php include ("asset/categori.php"); ?>
 	<!-- start product Area -->
+	
 	<?php include ("asset/produkid.php"); ?>
 	<br><br>
 	<!-- end product Area -->

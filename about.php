@@ -52,35 +52,32 @@
 	</section>
 	<!-- End Banner Area -->
 
-	<!--================Contact Area =================-->
-	<section class="contact_area section_gap_bottom">
-		<div class="container">
-			<div class="col-lg-12">
-				<table height="100px">
-					<tr><td></td></tr>
-				</table>
-			</div>
-			<div class="row">
-				<div class="col-lg-3">
+
+	<!--================Contact Area =================-->	
+	<section class="contact_area section_gap_bottom">	
+		<div class="container">		
+		<iframe class="embed-responsive-item" width="100%" style="margin-top: 30px" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3989.265685684917!2d100.3857281!3d-0.9536415!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b8a69071d39f%3A0xa4a89deaa38dc47a!2sCV.%20Mediatama%20Web%20Indonesia%20-%20Jasa%20Pembuatan%20dan%20Kursus%20Website%20di%20Kota%20Padang!5e0!3m2!1sid!2sid!4v1582100970415!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+			<div class="row" style="margin-top:100px">
+				<div class="col-lg-4">
 					<div class="contact_info">
 						<div class="info_item">
-							<i class="fas fa-camera"></i>
-							<h6>California, United States</h6>
-							<p>Santa monica bullevard</p>
+							<i class="lnr lnr-home"></i>
+							<h6>Padang, Indonesia</h6>
+							<p>kubu Marapalam</p>
 						</div>
 						<div class="info_item">
 							<i class="lnr lnr-phone-handset"></i>
-							<h6><a href="#">00 (440) 9865 562</a></h6>
-							<p>Mon to Fri 9am to 6 pm</p>
+							<h6><a href="#">082170214495</a></h6>
+							<p>Every day at 8am to 5pm</p>
 						</div>
 						<div class="info_item">
 							<i class="lnr lnr-envelope"></i>
-							<h6><a href="#">support@colorlib.com</a></h6>
+							<h6><a href="#">support@mediatamaweb.co.id</a></h6>
 							<p>Send us your query anytime!</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-9">
+				<div class="col-lg-8">
 					<form class="row contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
 						<div class="col-md-6">
 							<div class="form-group">
@@ -105,6 +102,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</section>
 	<!--================Contact Area =================-->
 
@@ -156,7 +154,7 @@
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
 	<!--gmaps Js-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYqLp4nlWizd9g-VnRlanCev7t-N790vQ"></script>
 	<script src="js/gmaps.min.js"></script>
 	<script src="js/main.js"></script>
 </body>

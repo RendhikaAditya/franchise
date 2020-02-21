@@ -64,7 +64,7 @@
                     <td><?php echo $data->frn_web?></td>
                     <td><img src="asset/gambar/<?php echo $data->frn_gambar?>" alt="" width="100px" hight="100px"></td>
                     <td width = "90px"><center><a href="edit_frn.php?id=<?php echo $data->frn_id; ?>" class="btn btn-success"><span class="fa fa-pen"></span></a>
-                                               <a onclick = "return confirm('anda yakin hapus')" href="hapus_frn.php?id=<?php echo $data->frn_id; ?>" class="btn btn-danger"><span class="fa fa-trash-alt"></span></a>                                 </span></a>
+                                               <a onclick = "return confirm('anda yakin hapus')" href="hapus_frn.php?id=<?php echo $data->frn_id; ?>" class="btn btn-danger"><span class="fa fa-trash-alt"></span></a>               
                     </center></td>
                   </tr>
                         <?php $no=$no+1;}?>                  

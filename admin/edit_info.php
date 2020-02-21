@@ -99,30 +99,12 @@
                                             <label>Alamat</label>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="form-label-group">
-                                            <input name="gambar" value="<?php echo $data->info_gambar ?>"  type="file" class="form-control">        
-                                            <img src="asset/gambar/<?php echo $data->info_gambar ?>" height="80px" width="auto" alt="">
-                                            <label>Gambar</label>
-                                        </div>
-                                    </div>
+
                                     
                                     <button name="save" class="btn btn-primary btn-block"> + Edit </button>
                                 </form>
                                 <?php
                                     if(isset($_POST['save'])){
-                                        // var_dump ($_FILES['gambar']);
-                                        // exit;
-                                        $nama_gambar = $_FILES['gambar']['name'];
-                                        $lokasi = $_FILES['gambar']['tmp_name'];
-
-                                        $pecahgambar = explode(".",$nama_gambar);
-                                        $gambarniq = $pecahgambar[0]=uniqid().".".$pecahgambar[1];
-                                        move_uploaded_file($lokasi, "asset/gambar/$gambarniq");
-
-                                        if(empty($nama_gambar)){
-                                            $gambarniq=$data->info_gambar;
-                                        }
 
                                         $nama = $_POST['nama'];
                                         $kategori = $_POST['kategori'];
@@ -138,7 +120,7 @@
 
 
                                         include 'components/koneksi.php';
-                                        $koneksi->query("UPDATE `tb_info` SET frn_id = '$nama', kategori_id = '$kategori', info_keterangan ='$keterangan', info_tahun = '$tahun', info_modal = '$modal', info_merk = '$merk', info_perusahaan = '$perusahaan', info_alamat = '$alamat', info_gambar = '$gambarniq' WHERE info_id = '$id'");
+                                        $koneksi->query("UPDATE `tb_info` SET frn_id = '$nama', kategori_id = '$kategori', info_keterangan ='$keterangan', info_tahun = '$tahun', info_modal = '$modal', info_merk = '$merk', info_perusahaan = '$perusahaan', info_alamat = '$alamat' WHERE info_id = '$id'");
                                         echo"
                                         <script>window.location='data_info.php'</script>";
                                         

@@ -65,7 +65,9 @@
 		include 'asset/feature.php';
 		?>
 	<!-- end features Area -->
-
+	<?php
+		include 'iklan.php';
+		?>
 	<!-- Start category Area -->
 	<?php
 		include 'asset/categori.php';

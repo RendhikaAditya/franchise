@@ -6,18 +6,17 @@
         </a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Master</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="data_admin.php">admin</a>
-          <a class="dropdown-item" href="data_inv.php">investor</a>
-          <a class="dropdown-item" href="data_frn.php">franchisor</a>
-          <a class="dropdown-item" href="data_info.php">Info</a>
-          <a class="dropdown-item" href="data_kategori.php">kategori</a>       
-          <a class="dropdown-item" href="data_gambar.php">gambar</a>       
-        </div>
+        <!-- <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </a> -->
+        <div>
+          <p> <a style="width: 100%" class="btn btn-dark" href="data_admin.php">Admin</a> </p>
+          <p> <a style="width: 100%" class="btn btn-dark" href="data_inv.php">Investor</a> </p>
+          <p> <a style="width: 100%" class="btn btn-dark" href="data_frn.php">Franchisor</a> </p>
+          <p> <a style="width: 100%" class="btn btn-dark" href="data_info.php">Info</a> </p>
+          <p> <a style="width: 100%" class="btn btn-dark" href="data_kategori.php">Kategori</a> </p>
+          <p> <a style="width: 100%" class="btn btn-dark" href="data_gambar.php">Gambar</a> </p>
+          <p> <a style="width: 100%" class="btn btn-dark" href="data_iklan.php">Iklan</a> </p>
+          </div>
         <div class="nav-item">
           <div  class="container"><a class="btn btn-danger" href="logout.php">LOGOUT</a></div>
         </div>

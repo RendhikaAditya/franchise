@@ -33,16 +33,73 @@
 				<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
 					<p style="font-size:45px; font-family:Tahoma, Geneva, sans-serif;">Daftar Brand Waralaba</p>
 				</div>
+			</div>
+		</div>
+	</div>			
+					<div class="col-sm-12 align-items-center d-flex justify-content-center input-group mb-3" style="margin-top:20px; height: 60px; background-color:#f0f0f0">
+						<table width='80%' height='40%'>
+							<tr>
+								<td style="color: grey; font-size: 20px">Urutkan</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td style="width: 200px">
+								<form method="POST">
+									<div class="input-group">
+										<select class="custom-select" id="inputGroupSelect02" name="harga" aria-label="Example select with button addon">
+											<option selected>Harga</option>
+											<option value="1">Harga ⬆</option>
+											<option value="2">Harga ⬇</option>
+										</select>
+										<div class="input-group-append">
+											<button class="btn btn-default" name="short">Short</button>
+										</div>
+									</div>
+									<!-- <button name="short"></button> -->
+								</form>
+									<?php 
+										include "admin/components/koneksi.php";
+										$id=$_GET['id'];																		
+										$data=$koneksi->query("SELECT * FROM `tb_info` LEFT JOIn tb_kategori ON tb_info.kategori_id=tb_kategori.kategori_id LEFT JOIN tb_frn ON tb_info.frn_id=tb_frn.frn_id");	
+										if(isset($_POST['short'])){
+											$harga=$_POST['harga'];
+												if($harga==1){
+													$data=$koneksi->query("SELECT * FROM `tb_info` LEFT JOIn tb_kategori ON tb_info.kategori_id=tb_kategori.kategori_id LEFT JOIN tb_frn ON tb_info.frn_id=tb_frn.frn_id ORDER BY info_modal DESC");
+												}elseif($harga==2){
+													$data=$koneksi->query("SELECT * FROM `tb_info` LEFT JOIn tb_kategori ON tb_info.kategori_id=tb_kategori.kategori_id LEFT JOIN tb_frn ON tb_info.frn_id=tb_frn.frn_id ORDER BY info_modal ASC");
+												}else {
+													$data=$koneksi->query("SELECT * FROM `tb_info` LEFT JOIn tb_kategori ON tb_info.kategori_id=tb_kategori.kategori_id LEFT JOIN tb_frn ON tb_info.frn_id=tb_frn.frn_id ");
+												}
+											}
+										
+									?>
+									
+									<!-- <form action="" method="POST">
+										<div class="input-group">
+											<select class="form-control custom-select" name="harga">
+												<option selected>Harga</option>
+												<option value="1">Harga ⬆</option>
+												<option value="2">Harga ⬇</option>
+											</select>
+											<div class="input-group-append">
+												<button class="btn btn-outline-secondary" name="short" type="button">Button</button>
+											</div>
+										</div>									
+									</form> -->
+								</td>
+							</tr>
+						</table>
+					</div>
+	<div class="container">
+		<div class="row">			
+			<div class="col-xl-12 col-lg-12 col-md-12">
 				<section class="lattest-product-area pb-40 category-list">
 					<div class="row">
 						<!-- single product -->
-                        <?php 
-                            $id=$_GET['id'];
-							include "admin/components/koneksi.php";
-							$data=$koneksi->query("SELECT * FROM `tb_info` LEFT JOIn tb_kategori ON tb_info.kategori_id=tb_kategori.kategori_id LEFT JOIN tb_frn ON tb_info.frn_id=tb_frn.frn_id");
+                        <?php                             
 							while($isi=$data->fetch_object()){
-                        ?>
-                        <?php
                             if($isi->kategori_id==$id){
                         ?>
 						<div class="col-lg-4 col-md-6" >
@@ -59,7 +116,7 @@
 									</div>
 									<div class="container">
 										<div class="col-md-12">
-											<a href="detail.php?id=<?php echo $isi->info_id ?>" class="btn rounded primary-btn" style="width:100%">Masuk</a>
+											<a href="detail.php?id=<?php echo $isi->info_id ?>" class="btn rounded primary-btn" style="width:100%">detail</a>
 										</div>
 									</div>
 								</div>
